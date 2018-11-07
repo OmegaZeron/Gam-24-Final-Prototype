@@ -2,15 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
+	#region Singleton stuff
+	public static GameManager Instance { get; private set; }
+	#endregion
 
-	// Use this for initialization
-	void Start () {
-		
+	private void Awake()
+	{
+		if (Instance != null && Instance != this)
+		{
+			Destroy(gameObject);
+		}
+		Instance = this;
+
+		// if we get a lot of managers it's easy to keep them all in a prefab, this lets DontDestroyOnLoad work if so
+		// transform.parent = null;
+		DontDestroyOnLoad(gameObject);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	private void Start()
+	{
+
+	}
+
+	private void Update()
+	{
+
 	}
 }
