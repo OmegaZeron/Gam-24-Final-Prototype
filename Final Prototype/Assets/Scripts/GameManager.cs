@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
 	private void Awake()
 	{
+		#region Singleton stuff
 		if (Instance != null && Instance != this)
 		{
 			Destroy(gameObject);
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
 		// if we get a lot of managers it's easy to keep them all in a prefab, this lets DontDestroyOnLoad work if so
 		// transform.parent = null;
 		DontDestroyOnLoad(gameObject);
+		#endregion
 	}
 
 	private void Start()
