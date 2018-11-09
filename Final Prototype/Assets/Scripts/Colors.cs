@@ -17,16 +17,23 @@ public class Colors
 	/// </summary>
 	public static Colors operator +(Colors laserColor, Colors hitColor)
 	{
+		// if white
 		if (laserColor.color == Color.white)
 		{
 			return hitColor;
 		}
+		if (hitColor.color == Color.white)
+		{
+			return laserColor;
+		}
 
+		// if multicolor
 		if (laserColor.color == Color.cyan || laserColor.color == Color.magenta || laserColor.color == Color.yellow)
 		{
 			return new Colors(brown);
 		}
 
+		// add colors
 		if (laserColor.color == Color.red)
 		{
 			if (hitColor.color == Color.green)
@@ -63,7 +70,12 @@ public class Colors
 			}
 			return laserColor;
 		}
-		Debug.LogWarning("Make sure you use the format \"laserColor + hitColor\", or tell me what happened if you did and this still happened -Greg");
+
+		// if brown or error
+		if (laserColor.color != brown)
+		{
+			Debug.LogWarning("Make sure you use the format \"laserColor + hitColor\", or tell me what happened if you did and this still happened -Greg");
+		}
 		return laserColor;
 	}
 }
