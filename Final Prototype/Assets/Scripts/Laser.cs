@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-	public enum LaserColor
-	{
-		White,
-		Allan,
-		Please,
-		Add,
-		Colors
-	}
-	private LaserColor laserColor = LaserColor.White;
-
 	private LineRenderer line;
+	private Colors color = new Colors(Color.white);
 	
 	[SerializeField] private float laserDistance;
 	[SerializeField] private float damage;
@@ -39,6 +30,22 @@ public class Laser : MonoBehaviour
 		}
 
 		StartCoroutine(FadeLaser());
+	}
+
+	private void Update()
+	{
+		line.startColor = color.color;
+		line.endColor = color.color;
+	}
+
+	private IEnumerator Test()
+	{
+		yield return new WaitForSeconds(1);
+		color += new Colors(Color.red);
+		yield return new WaitForSeconds(1);
+		color += new Colors(Color.green);
+		yield return new WaitForSeconds(1);
+		color += new Colors(Color.blue);
 	}
 
 	private IEnumerator FadeLaser()
