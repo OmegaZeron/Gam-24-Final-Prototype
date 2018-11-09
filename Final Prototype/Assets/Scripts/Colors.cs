@@ -12,55 +12,58 @@ public class Colors
 		this.color = color ?? Color.white;
 	}
 
-	public static Colors operator +(Colors c1, Colors c2)
+	/// <summary>
+	/// Adds to the laser color based on what color you hit (laserColor = laserColor + hitColor OR laserColor += hitColor)
+	/// </summary>
+	public static Colors operator +(Colors laserColor, Colors hitColor)
 	{
-		if (c1.color == Color.white)
+		if (laserColor.color == Color.white)
 		{
-			return c2;
+			return hitColor;
 		}
 
-		if (c1.color == Color.cyan || c1.color == Color.magenta || c1.color == Color.yellow)
+		if (laserColor.color == Color.cyan || laserColor.color == Color.magenta || laserColor.color == Color.yellow)
 		{
 			return new Colors(brown);
 		}
 
-		if (c1.color == Color.red)
+		if (laserColor.color == Color.red)
 		{
-			if (c2.color == Color.green)
+			if (hitColor.color == Color.green)
 			{
 				return new Colors(Color.yellow);
 			}
-			if (c2.color == Color.blue)
+			if (hitColor.color == Color.blue)
 			{
 				return new Colors(Color.magenta);
 			}
-			return c1;
+			return laserColor;
 		}
-		if (c1.color == Color.green)
+		if (laserColor.color == Color.green)
 		{
-			if (c2.color == Color.red)
+			if (hitColor.color == Color.red)
 			{
 				return new Colors(Color.yellow);
 			}
-			if (c2.color == Color.blue)
+			if (hitColor.color == Color.blue)
 			{
 				return new Colors(Color.cyan);
 			}
-			return c1;
+			return laserColor;
 		}
-		if (c1.color == Color.blue)
+		if (laserColor.color == Color.blue)
 		{
-			if (c2.color == Color.green)
+			if (hitColor.color == Color.green)
 			{
 				return new Colors(Color.cyan);
 			}
-			if (c2.color == Color.red)
+			if (hitColor.color == Color.red)
 			{
 				return new Colors(Color.magenta);
 			}
-			return c1;
+			return laserColor;
 		}
-
-		return c1;
+		Debug.LogWarning("Make sure you use the format \"laserColor + hitColor\", or tell me what happened if you did and this still happened -Greg");
+		return laserColor;
 	}
 }
