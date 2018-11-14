@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd077402d30dd34dba589f6b8693d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserPrefab: {fileID: 1319199210788478}
   laserDistance: 4
   damage: 0
 --- !u!120 &120166823809934068
