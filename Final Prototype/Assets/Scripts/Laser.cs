@@ -6,11 +6,11 @@ public class Laser : MonoBehaviour
 {
 	private LineRenderer line;
 	private Colors color = new Colors(Color.white);
-	
+
 	[SerializeField] private float laserDistance;
 	[SerializeField] private float damage;
 
-	private void Start()
+	private void Awake()
 	{
 		line = GetComponent<LineRenderer>();
 		line.SetPosition(0, transform.parent.position);
