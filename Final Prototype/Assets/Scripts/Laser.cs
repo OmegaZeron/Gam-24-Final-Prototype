@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
+	[SerializeField] private GameObject laserPrefab;
+
 	private LineRenderer line;
 	private Colors color = new Colors(Color.white);
 
@@ -20,7 +22,21 @@ public class Laser : MonoBehaviour
 			if (hit.collider)
 			{
 				line.SetPosition(1, hit.point);
-				//check for bounce/color (create new prefab, go in new direction)
+				//check for bounce/color
+				if (hit.collider.GetComponent<IBounceable>() != null)
+				{
+					float distance = laserDistance - Vector3.Distance(line.GetPosition(0), line.GetPosition(1));
+					Vector3 heading = line.GetPosition(1) - line.GetPosition(0);
+					Vector3 bounceAngle = Vector3.Reflect(heading.normalized, hit.normal);
+					Laser newLaser = Instantiate(laserPrefab, hit.point, Quaternion.identity).GetComponentInChildren<Laser>();
+					newLaser.transform.parent.forward = bounceAngle;
+					newLaser.laserDistance = distance;
+
+					if (hit.collider.GetComponent<IColorable>() != null)
+					{
+						newLaser.color = color + hit.collider.GetComponent<IColorable>().GetColor();
+					}
+				}
 				//check for switch/enemy
 			}
 		}
@@ -29,13 +45,12 @@ public class Laser : MonoBehaviour
 			line.SetPosition(1, transform.parent.forward * laserDistance);
 		}
 
-		StartCoroutine(FadeLaser());
+		// StartCoroutine(FadeLaser());
 	}
 
 	private void Update()
 	{
-		line.startColor = color.color;
-		line.endColor = color.color;
+		line.startColor = line.endColor = color.color;
 	}
 
 	private IEnumerator Test()
@@ -52,8 +67,8 @@ public class Laser : MonoBehaviour
 	{
 		while (line.startWidth > 0)
 		{
-			line.startWidth -= .2f * Time.deltaTime;
-			line.endWidth -= .2f * Time.deltaTime;
+			line.startWidth -= .1f * Time.deltaTime;
+			line.endWidth -= .1f * Time.deltaTime;
 			yield return null;
 		}
 		Destroy(transform.parent.gameObject);
