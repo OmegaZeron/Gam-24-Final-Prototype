@@ -10,7 +10,7 @@ public class Laser : MonoBehaviour
 	private Colors color = new Colors(Color.white);
 
 	[SerializeField] private float laserDistance;
-	[SerializeField] private float damage;
+	[SerializeField] private int damage;
 
 	private Vector3 heading;
 	private Vector3 bounceAngle;
@@ -30,10 +30,11 @@ public class Laser : MonoBehaviour
 				if (hit.collider.GetComponent<IBounceable>() != null)
 				{
 
-					// Debug.Log(hit.normal);
+					Debug.Log(hit.point);
 					// float distance = laserDistance - Vector3.Distance(line.GetPosition(0), line.GetPosition(1));
 					heading = line.GetPosition(1) - line.GetPosition(0);
 					bounceAngle = Vector3.Reflect(heading.normalized, hit.normal);
+					Debug.Log(bounceAngle);
 
 					// Laser newLaser = Instantiate(laserPrefab, hit.point, Quaternion.identity).GetComponentInChildren<Laser>();
 					// newLaser.transform.parent.forward = bounceAngle;
@@ -48,7 +49,7 @@ public class Laser : MonoBehaviour
 				//check for switch/enemy
 				if (hit.collider.GetComponent<IDamageable>() != null)
 				{
-					hit.collider.GetComponent<IDamageable>().TakeDamage();
+					hit.collider.GetComponent<IDamageable>().TakeDamage(damage);
 				}
 			}
 		}
@@ -63,7 +64,7 @@ public class Laser : MonoBehaviour
 	private void Update()
 	{
 		// line.startColor = line.endColor = color.color;
-		Debug.DrawLine(hit.point, bounceAngle * 4, Color.red);
+		Debug.DrawRay(hit.point, bounceAngle * 4, Color.red);
 	}
 
 	private IEnumerator Test()
