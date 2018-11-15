@@ -49,7 +49,7 @@ public class Laser : MonoBehaviour
 		}
 		else
 		{
-			line.SetPosition(1, transform.forward); // this line is the problem
+			line.SetPosition(1, transform.position + (transform.forward * laserDistance));
 		}
 
 		// StartCoroutine(FadeLaser());
