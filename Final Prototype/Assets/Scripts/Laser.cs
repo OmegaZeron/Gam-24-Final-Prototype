@@ -12,16 +12,13 @@ public class Laser : MonoBehaviour
 	[SerializeField] private float laserDistance;
 	[SerializeField] private int damage;
 
-	private Vector3 heading;
-	private Vector3 bounceAngle;
-	private RaycastHit hit;
-
-	private void Awake()
+	private void Start()
 	{
 		line = GetComponent<LineRenderer>();
 		line.SetPosition(0, transform.position);
 
-		if (Physics.Raycast(transform.position, transform.forward, out hit, laserDistance))
+		RaycastHit hit;
+		if (Physics.Raycast(line.GetPosition(0), transform.forward, out hit, laserDistance))
 		{
 			if (hit.collider)
 			{
@@ -30,20 +27,17 @@ public class Laser : MonoBehaviour
 				if (hit.collider.GetComponent<IBounceable>() != null)
 				{
 
-					Debug.Log(hit.point);
-					// float distance = laserDistance - Vector3.Distance(line.GetPosition(0), line.GetPosition(1));
-					heading = line.GetPosition(1) - line.GetPosition(0);
-					bounceAngle = Vector3.Reflect(heading.normalized, hit.normal);
-					Debug.Log(bounceAngle);
+					float distance = laserDistance - Vector3.Distance(line.GetPosition(0), line.GetPosition(1));
+					Vector3 heading = line.GetPosition(1) - line.GetPosition(0);
+					Vector3 bounceAngle = Vector3.Reflect(heading.normalized, hit.normal);
 
-					// Laser newLaser = Instantiate(laserPrefab, hit.point, Quaternion.identity).GetComponentInChildren<Laser>();
-					// newLaser.transform.parent.forward = bounceAngle;
-					// newLaser.transform.parent.position = newLaser.transform.parent.position + (newLaser.transform.parent.forward * .05f); // shouldn't need this
-					// newLaser.laserDistance = distance;
+					Laser newLaser = Instantiate(laserPrefab, hit.point, Quaternion.identity).GetComponent<Laser>();
+					newLaser.transform.forward = bounceAngle;
+					newLaser.laserDistance = distance;
 
 					if (hit.collider.GetComponent<IColorable>() != null)
 					{
-						// newLaser.color = color + hit.collider.GetComponent<IColorable>().GetColor();
+						newLaser.color = color + hit.collider.GetComponent<IColorable>().GetColor();
 					}
 				}
 				//check for switch/enemy
@@ -55,7 +49,7 @@ public class Laser : MonoBehaviour
 		}
 		else
 		{
-			line.SetPosition(1, transform.forward * laserDistance);
+			line.SetPosition(1, transform.forward); // this line is the problem
 		}
 
 		// StartCoroutine(FadeLaser());
@@ -63,8 +57,7 @@ public class Laser : MonoBehaviour
 
 	private void Update()
 	{
-		// line.startColor = line.endColor = color.color;
-		Debug.DrawRay(hit.point, bounceAngle * 4, Color.red);
+		line.startColor = line.endColor = color.color;
 	}
 
 	private IEnumerator Test()
