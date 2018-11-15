@@ -58,6 +58,6 @@ public class EnemyPathfinding : MonoBehaviour {
 		var speedFactor = reachedEndOfPath ? Mathf.Sqrt(distanceToWaypoint/nextWaypointDistance) : 1f;
 		Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
 		Vector3 velocity = dir * speed * speedFactor;
-		//Move rb.AddForce ();
+		rb.AddForce (velocity);
 	}
 }
