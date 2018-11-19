@@ -10,6 +10,7 @@ public class Laser : MonoBehaviour
 	private Colors color = new Colors(Color.white);
 
 	[SerializeField] private float laserDistance;
+	[SerializeField] private float fadeSpeed;
 	[SerializeField] private int damage;
 
 	private void Start()
@@ -52,7 +53,7 @@ public class Laser : MonoBehaviour
 			line.SetPosition(1, transform.position + (transform.forward * laserDistance));
 		}
 
-		// StartCoroutine(FadeLaser());
+		StartCoroutine(FadeLaser());
 	}
 
 	private void Update()
@@ -74,10 +75,10 @@ public class Laser : MonoBehaviour
 	{
 		while (line.startWidth > 0)
 		{
-			line.startWidth -= .1f * Time.deltaTime;
-			line.endWidth -= .1f * Time.deltaTime;
+			line.startWidth -= fadeSpeed * Time.deltaTime;
+			line.endWidth -= fadeSpeed * Time.deltaTime;
 			yield return null;
 		}
-		Destroy(transform.parent.gameObject);
+		Destroy(gameObject);
 	}
 }
