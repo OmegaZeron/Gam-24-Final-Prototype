@@ -6,7 +6,6 @@ using Pathfinding;
 public class EnemyPathfinding : MonoBehaviour {
 
 	public Transform[] waypoints;
-	public Transform testPoint;
 	public Rigidbody rb;
 	private int i = 0;
 	private Seeker seeker;
@@ -24,15 +23,18 @@ public class EnemyPathfinding : MonoBehaviour {
 	}
 
 	void OnPathComplete (Path p) {
-		/*if (i < waypoints.Length) {
+		if (i == waypoints.Length) {
+			i = 0;
+		}
+		if (i < waypoints.Length) {
 			i++;
-		}*/
+		}
 	}
 
 	void Update () {
 		if (Time.time > lastRepath + repathRate && seeker.IsDone()) {
 			lastRepath = Time.time;
-			seeker.StartPath(transform.position, testPoint.position);
+			seeker.StartPath(transform.position, waypoints[i].position);
 		}
 		if (path == null) {
 			return;

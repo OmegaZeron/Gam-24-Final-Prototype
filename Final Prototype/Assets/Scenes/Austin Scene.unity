@@ -177,6 +177,16 @@ Prefab:
       propertyPath: testPoint
       value: 
       objectReference: {fileID: 2055323542}
+    - target: {fileID: 114226635687352826, guid: 27a370a0e7686d546b29072ef7c9d99a,
+        type: 2}
+      propertyPath: repathRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114226635687352826, guid: 27a370a0e7686d546b29072ef7c9d99a,
+        type: 2}
+      propertyPath: alwaysDrawGizmos
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27a370a0e7686d546b29072ef7c9d99a, type: 2}
   m_IsPrefabParent: 0
