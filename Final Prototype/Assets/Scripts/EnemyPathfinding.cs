@@ -32,10 +32,9 @@ public class EnemyPathfinding : MonoBehaviour {
 	void Update () {
 		if (Time.time > lastRepath + repathRate && seeker.IsDone()) {
 			lastRepath = Time.time;
-			seeker.StartPath(transform.position, testPoint.position, OnPathComplete);
+			seeker.StartPath(transform.position, testPoint.position);
 		}
 		if (path == null) {
-			Debug.Log (i);
 			return;
 		}
 			

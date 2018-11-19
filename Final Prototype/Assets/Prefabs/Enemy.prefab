@@ -142,8 +142,9 @@ GameObject:
   - component: {fileID: 4522336041405996}
   - component: {fileID: 114923895571942058}
   - component: {fileID: 114948121420791838}
-  - component: {fileID: 54668987139388784}
-  - component: {fileID: 136275725774925354}
+  - component: {fileID: 54762363613085532}
+  - component: {fileID: 136388723765623756}
+  - component: {fileID: 114226635687352826}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1115,7 +1116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1226025889931050}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -11.844768, y: 0.207, z: 10.1}
+  m_LocalPosition: {x: -10.42, y: 1.49, z: 8.1}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4806154274479436}
@@ -1391,7 +1392,7 @@ Transform:
   m_Father: {fileID: 4417551519882648}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54668987139388784
+--- !u!54 &54762363613085532
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1424,6 +1425,41 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114226635687352826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1226025889931050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+  radius: 0.5
+  height: 0.01
+  repathRate: 0.5
+  canSearch: 1
+  canMove: 1
+  maxSpeed: 5
+  gravity: {x: NaN, y: NaN, z: NaN}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  orientation: 0
+  enableRotation: 1
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
+  rotationSpeed: 360
+  slowdownDistance: 0.6
+  pickNextWaypointDist: 2
+  endReachedDistance: 0.2
+  alwaysDrawGizmos: 0
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &114923895571942058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1468,12 +1504,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   testPoint: {fileID: 0}
-  rb: {fileID: 54668987139388784}
+  rb: {fileID: 0}
   speed: 30
   nextWaypointDistance: 1
   repathRate: 0.5
   reachedEndOfPath: 0
---- !u!136 &136275725774925354
+--- !u!136 &136388723765623756
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1482,10 +1518,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.54
-  m_Height: 2.33
+  m_Radius: 0.5
+  m_Height: 2.2
   m_Direction: 1
-  m_Center: {x: 0, y: 1.16, z: 0}
+  m_Center: {x: 0, y: 1.11, z: 0}
 --- !u!137 &137127403026269630
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
