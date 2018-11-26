@@ -10,6 +10,11 @@ public class Colors
 		this.color = color ?? Color.white;
 	}
 
+    public bool Equals(Colors other)
+    {
+        return color == other.color;
+    }
+
 	/// <summary>
 	/// Adds to the laser color based on what color you hit (laserColor = laserColor + hitColor OR laserColor += hitColor)
 	/// </summary>

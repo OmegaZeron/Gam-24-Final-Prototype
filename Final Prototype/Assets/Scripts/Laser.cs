@@ -44,7 +44,7 @@ public class Laser : MonoBehaviour
 				//check for switch/enemy
 				if (hit.collider.GetComponent<IDamageable>() != null)
 				{
-					hit.collider.GetComponent<IDamageable>().TakeDamage(damage);
+					hit.collider.GetComponent<IDamageable>().TakeDamage(damage, color);
 				}
 			}
 		}
