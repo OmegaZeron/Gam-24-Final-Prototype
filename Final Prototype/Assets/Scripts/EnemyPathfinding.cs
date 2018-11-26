@@ -17,6 +17,7 @@ public class EnemyPathfinding : MonoBehaviour {
 	private float lastRepath = float.NegativeInfinity;
 	public bool reachedEndOfPath;
 	IAstarAI ai;
+	public float errorDistance = 0.2f;
 
 	void Start () {
 		seeker = GetComponent<Seeker> ();
@@ -29,12 +30,12 @@ public class EnemyPathfinding : MonoBehaviour {
 	}
 
 	void OnReachedDest () {
-		Debug.Log ("h");
-		if (i == waypoints.Length) {
+		if (i + 1 == waypoints.Length) {
 			i = 0;
-		}
-		if (i < waypoints.Length) {
-			i++;
+		} else {
+			if (i < waypoints.Length) {
+				i++;
+			}
 		}
 	}
 
@@ -43,8 +44,13 @@ public class EnemyPathfinding : MonoBehaviour {
 			lastRepath = Time.time;
 			seeker.StartPath(transform.position, waypoints[i].position);
 		}
+
+		if (Vector3.Distance (transform.position, new Vector3 (waypoints[i].position.x, waypoints[i].position.y, waypoints[i].position.z)) <= errorDistance) {
+			OnReachedDest ();
+		}
+
 		if (path == null) {
-			//return;
+			return;
 		}
 			
 		reachedEndOfPath = false;
@@ -63,14 +69,10 @@ public class EnemyPathfinding : MonoBehaviour {
 				break;
 			}
 		}
+
 		var speedFactor = reachedEndOfPath ? Mathf.Sqrt(distanceToWaypoint/nextWaypointDistance) : 1f;
 		Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
 		Vector3 velocity = dir * speed * speedFactor;
 		rb.AddForce (velocity);
-
-		//Dest reached
-		if (ai.targetReached) {
-			OnReachedDest ();
-		}
 	}
 }
