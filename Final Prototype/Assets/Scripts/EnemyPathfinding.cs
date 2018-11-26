@@ -16,13 +16,20 @@ public class EnemyPathfinding : MonoBehaviour {
 	public float repathRate = 0.5f;
 	private float lastRepath = float.NegativeInfinity;
 	public bool reachedEndOfPath;
+	IAstarAI ai;
 
 	void Start () {
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody> ();
+		ai = GetComponent<IAstarAI>();
 	}
 
 	void OnPathComplete (Path p) {
+		//Do nothing
+	}
+
+	void OnReachedDest () {
+		Debug.Log ("h");
 		if (i == waypoints.Length) {
 			i = 0;
 		}
@@ -37,7 +44,7 @@ public class EnemyPathfinding : MonoBehaviour {
 			seeker.StartPath(transform.position, waypoints[i].position);
 		}
 		if (path == null) {
-			return;
+			//return;
 		}
 			
 		reachedEndOfPath = false;
@@ -60,5 +67,10 @@ public class EnemyPathfinding : MonoBehaviour {
 		Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
 		Vector3 velocity = dir * speed * speedFactor;
 		rb.AddForce (velocity);
+
+		//Dest reached
+		if (ai.targetReached) {
+			OnReachedDest ();
+		}
 	}
 }
