@@ -15,11 +15,6 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         currentHealth = maxHealth;
 	}
-	
-	void Update()
-    {
-		
-	}
 
     public void TakeDamage(int damage, Colors hitColor)
     {
