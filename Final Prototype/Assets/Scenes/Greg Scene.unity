@@ -152,6 +152,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1497943359868916, guid: 1157ab577a29c844fa315ba1f4a3d93a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1157ab577a29c844fa315ba1f4a3d93a, type: 2}
   m_IsPrefabParent: 0
@@ -299,6 +303,22 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b6e05e75059ad61429b1d939c02c57fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b6e05e75059ad61429b1d939c02c57fa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b6e05e75059ad61429b1d939c02c57fa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b6e05e75059ad61429b1d939c02c57fa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6e05e75059ad61429b1d939c02c57fa, type: 3}
   m_IsPrefabParent: 0
@@ -413,6 +433,7 @@ GameObject:
   - component: {fileID: 1679527788}
   - component: {fileID: 1679527787}
   - component: {fileID: 1679527786}
+  - component: {fileID: 1679527791}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Player
@@ -499,6 +520,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1679527791
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1679527785}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &2067818425
 GameObject:
   m_ObjectHideFlags: 0
