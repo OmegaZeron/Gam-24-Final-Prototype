@@ -9,19 +9,22 @@ public class Switch : IDamageable
 
     [SerializeField] private Door door;
 
+	public DoorLight doorLight;
+
     void Start()
     {
         color = new Colors(colorChoice);
         currentHealth = maxHealth;
 	}
 
-    public void TakeDamage(int damage, Colors hitColor)
+    public new void TakeDamage(int damage, Colors hitColor)
     {
         if (currentHealth > 0 && color.Equals(hitColor))
         {
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
+				doorLight.On ();
                 door.OpenLock(this);
                 Debug.LogWarning("I've been hit but there's no animation yet");
             }

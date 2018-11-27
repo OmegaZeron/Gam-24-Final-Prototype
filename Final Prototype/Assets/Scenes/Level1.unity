@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04344748, g: 0.04184796, b: 0.044882335, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -169,6 +169,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7bfada0ce74c30f4a9ca3b047d56b3ce, type: 2}
+    - target: {fileID: 1233643213600072, guid: 4b9a2b23b4dffbb47b1d0971e6b602da, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b9a2b23b4dffbb47b1d0971e6b602da, type: 2}
   m_IsPrefabParent: 0
@@ -270,6 +274,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b266dee3b5e1841969ea11aebc5c66ac, type: 2}
+    - target: {fileID: 1690999809913748, guid: bae00c233c223814e85027e2066ca25e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159382086945454, guid: bae00c233c223814e85027e2066ca25e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bae00c233c223814e85027e2066ca25e, type: 2}
   m_IsPrefabParent: 0
@@ -387,6 +399,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.435526
       objectReference: {fileID: 0}
+    - target: {fileID: 1622137969234424, guid: 3294cc13576d3414fb40697c81a820f0, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3294cc13576d3414fb40697c81a820f0, type: 2}
   m_IsPrefabParent: 0
@@ -445,6 +461,11 @@ Prefab:
     - target: {fileID: 1559504202941798, guid: 662cf661f35407742a6bff238f787124, type: 2}
       propertyPath: m_Name
       value: Roof_Light (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 108445625355940732, guid: 662cf661f35407742a6bff238f787124,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 662cf661f35407742a6bff238f787124, type: 2}
@@ -507,7 +528,7 @@ Transform:
   - {fileID: 1634203230}
   - {fileID: 287449143}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &374050564 stripped
 GameObject:
@@ -528,6 +549,7 @@ MonoBehaviour:
   maxHealth: 1
   colorChoice: 0
   door: {fileID: 1857802392}
+  doorLight: {fileID: 1460288517}
 --- !u!1001 &411156008
 Prefab:
   m_ObjectHideFlags: 0
@@ -579,6 +601,11 @@ Prefab:
       propertyPath: m_Name
       value: Roof_Light (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 108445625355940732, guid: 662cf661f35407742a6bff238f787124,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 662cf661f35407742a6bff238f787124, type: 2}
   m_IsPrefabParent: 0
@@ -624,7 +651,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4500147791792126, guid: 71a3b0c9c9475b5459bd1d31a0f26356, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4500147791792126, guid: 71a3b0c9c9475b5459bd1d31a0f26356, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -729,6 +756,14 @@ Prefab:
     - target: {fileID: 4343639351048502, guid: bae00c233c223814e85027e2066ca25e, type: 2}
       propertyPath: m_LocalScale.z
       value: 1.435526
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690999809913748, guid: bae00c233c223814e85027e2066ca25e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159382086945454, guid: bae00c233c223814e85027e2066ca25e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bae00c233c223814e85027e2066ca25e, type: 2}
@@ -859,6 +894,11 @@ Prefab:
       propertyPath: m_Name
       value: Roof_Light (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 108445625355940732, guid: 662cf661f35407742a6bff238f787124,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 662cf661f35407742a6bff238f787124, type: 2}
   m_IsPrefabParent: 0
@@ -917,6 +957,14 @@ Prefab:
     - target: {fileID: 4343639351048502, guid: bae00c233c223814e85027e2066ca25e, type: 2}
       propertyPath: m_LocalScale.z
       value: 1.435526
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159382086945454, guid: bae00c233c223814e85027e2066ca25e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690999809913748, guid: bae00c233c223814e85027e2066ca25e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bae00c233c223814e85027e2066ca25e, type: 2}
@@ -1046,6 +1094,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ba3d61b52909f4c5abeca9cabf35feba, type: 2}
+    - target: {fileID: 1804441739479894, guid: d9824cb167693e44cb2776c5dcd6e0b6, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9824cb167693e44cb2776c5dcd6e0b6, type: 2}
   m_IsPrefabParent: 0
@@ -1161,6 +1213,10 @@ Prefab:
       propertyPath: m_Name
       value: Floor (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1804441739479894, guid: d9824cb167693e44cb2776c5dcd6e0b6, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9824cb167693e44cb2776c5dcd6e0b6, type: 2}
   m_IsPrefabParent: 0
@@ -1224,6 +1280,80 @@ Transform:
   m_PrefabParentObject: {fileID: 4353997167228002, guid: 30668dfc2a5763d48935eda264bc3975,
     type: 2}
   m_PrefabInternal: {fileID: 1061795674}
+--- !u!1001 &1078564650
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.406
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 9.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804129921117508, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921542568489516, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_Name
+      value: DoorLight (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1078564651 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1921542568489516, guid: 4779987ed48f0eb42a27b71478775c10,
+    type: 2}
+  m_PrefabInternal: {fileID: 1078564650}
+--- !u!114 &1078564652 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114999863625562302, guid: 4779987ed48f0eb42a27b71478775c10,
+    type: 2}
+  m_PrefabInternal: {fileID: 1078564650}
+  m_Script: {fileID: 11500000, guid: 115a3ef56502dd64b83dbf08722a070b, type: 3}
+--- !u!114 &1078564653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1078564651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115a3ef56502dd64b83dbf08722a070b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redLight: {fileID: 0}
+  greenLight: {fileID: 0}
 --- !u!1001 &1274538125
 Prefab:
   m_ObjectHideFlags: 0
@@ -1283,6 +1413,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.435526
       objectReference: {fileID: 0}
+    - target: {fileID: 1233643213600072, guid: 4b9a2b23b4dffbb47b1d0971e6b602da, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b9a2b23b4dffbb47b1d0971e6b602da, type: 2}
   m_IsPrefabParent: 0
@@ -1341,6 +1475,11 @@ Prefab:
     - target: {fileID: 1559504202941798, guid: 662cf661f35407742a6bff238f787124, type: 2}
       propertyPath: m_Name
       value: Roof_Light (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 108445625355940732, guid: 662cf661f35407742a6bff238f787124,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 662cf661f35407742a6bff238f787124, type: 2}
@@ -1410,6 +1549,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b266dee3b5e1841969ea11aebc5c66ac, type: 2}
+    - target: {fileID: 1690999809913748, guid: bae00c233c223814e85027e2066ca25e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159382086945454, guid: bae00c233c223814e85027e2066ca25e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bae00c233c223814e85027e2066ca25e, type: 2}
   m_IsPrefabParent: 0
@@ -1502,6 +1649,11 @@ Prefab:
       propertyPath: m_Name
       value: Roof_Light (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 108445625355940732, guid: 662cf661f35407742a6bff238f787124,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 662cf661f35407742a6bff238f787124, type: 2}
   m_IsPrefabParent: 0
@@ -1510,6 +1662,54 @@ Transform:
   m_PrefabParentObject: {fileID: 4939172812143550, guid: 662cf661f35407742a6bff238f787124,
     type: 2}
   m_PrefabInternal: {fileID: 1353644216}
+--- !u!1001 &1460288516
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 9.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053293909116280, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4779987ed48f0eb42a27b71478775c10, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &1460288517 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114999863625562302, guid: 4779987ed48f0eb42a27b71478775c10,
+    type: 2}
+  m_PrefabInternal: {fileID: 1460288516}
+  m_Script: {fileID: 11500000, guid: 115a3ef56502dd64b83dbf08722a070b, type: 3}
 --- !u!1 &1541770671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,7 +1773,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 34.439003, y: 5.53, z: -17.237001}
 --- !u!1001 &1609922049
 Prefab:
@@ -1688,6 +1888,11 @@ Prefab:
       propertyPath: m_Name
       value: Roof_Light (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 108445625355940732, guid: 662cf661f35407742a6bff238f787124,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 662cf661f35407742a6bff238f787124, type: 2}
   m_IsPrefabParent: 0
@@ -1709,20 +1914,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1634203226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e5e3b1295f612a45a4692365f1f39c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ce3c37a0028383429ecce7fbca76876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1634203228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1634203226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e5e3b1295f612a45a4692365f1f39c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  color2: 1
 --- !u!4 &1634203230 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4071468947586124, guid: f530be273a781cf4a9f1b07e47e000d6,
@@ -1778,6 +1973,10 @@ Prefab:
     - target: {fileID: 4406513089751180, guid: 3294cc13576d3414fb40697c81a820f0, type: 2}
       propertyPath: m_LocalScale.z
       value: 1.435526
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622137969234424, guid: 3294cc13576d3414fb40697c81a820f0, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3294cc13576d3414fb40697c81a820f0, type: 2}
@@ -1842,6 +2041,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.435526
       objectReference: {fileID: 0}
+    - target: {fileID: 1622137969234424, guid: 3294cc13576d3414fb40697c81a820f0, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3294cc13576d3414fb40697c81a820f0, type: 2}
   m_IsPrefabParent: 0
@@ -1891,6 +2094,10 @@ Prefab:
     - target: {fileID: 4071468947586124, guid: f530be273a781cf4a9f1b07e47e000d6, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578168338987856, guid: f530be273a781cf4a9f1b07e47e000d6, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f530be273a781cf4a9f1b07e47e000d6, type: 2}
@@ -1945,6 +2152,11 @@ Prefab:
     - target: {fileID: 1559504202941798, guid: 662cf661f35407742a6bff238f787124, type: 2}
       propertyPath: m_Name
       value: Roof_Light (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 108445625355940732, guid: 662cf661f35407742a6bff238f787124,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 662cf661f35407742a6bff238f787124, type: 2}
@@ -2001,6 +2213,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.435526
       objectReference: {fileID: 0}
+    - target: {fileID: 1233643213600072, guid: 4b9a2b23b4dffbb47b1d0971e6b602da, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b9a2b23b4dffbb47b1d0971e6b602da, type: 2}
   m_IsPrefabParent: 0
@@ -2050,6 +2266,11 @@ Prefab:
     - target: {fileID: 4939172812143550, guid: 662cf661f35407742a6bff238f787124, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108445625355940732, guid: 662cf661f35407742a6bff238f787124,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 662cf661f35407742a6bff238f787124, type: 2}
@@ -2102,9 +2323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cbfa3aca8ee7c43bae991c1550e59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 1
   colorChoice: 3
   door: {fileID: 1857802392}
+  doorLight: {fileID: 1078564652}
 --- !u!1 &1857802391 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1146111463812142, guid: e184671593fcbb0418ddee1b6a7b3eba,
@@ -2121,6 +2343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac1f3b24ab550a438b6d3aea8348833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keys:
+  - {fileID: 374050565}
+  - {fileID: 1834478264}
 --- !u!1001 &1976383082
 Prefab:
   m_ObjectHideFlags: 0
@@ -2184,6 +2409,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.435526
       objectReference: {fileID: 0}
+    - target: {fileID: 1233643213600072, guid: 4b9a2b23b4dffbb47b1d0971e6b602da, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b9a2b23b4dffbb47b1d0971e6b602da, type: 2}
   m_IsPrefabParent: 0
@@ -2239,6 +2468,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1134862910451562, guid: 07da5862b8ca8e7459638dbfcf6bde81, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07da5862b8ca8e7459638dbfcf6bde81, type: 2}
   m_IsPrefabParent: 0
@@ -2292,6 +2525,11 @@ Prefab:
     - target: {fileID: 1559504202941798, guid: 662cf661f35407742a6bff238f787124, type: 2}
       propertyPath: m_Name
       value: Roof_Light (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 108445625355940732, guid: 662cf661f35407742a6bff238f787124,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 662cf661f35407742a6bff238f787124, type: 2}
@@ -2391,6 +2629,10 @@ Prefab:
     - target: {fileID: 1622137969234424, guid: 3294cc13576d3414fb40697c81a820f0, type: 2}
       propertyPath: m_Name
       value: Wall Corner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622137969234424, guid: 3294cc13576d3414fb40697c81a820f0, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3294cc13576d3414fb40697c81a820f0, type: 2}

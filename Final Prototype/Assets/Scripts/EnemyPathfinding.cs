@@ -16,13 +16,11 @@ public class EnemyPathfinding : MonoBehaviour {
 	public float repathRate = 0.5f;
 	private float lastRepath = float.NegativeInfinity;
 	public bool reachedEndOfPath;
-	IAstarAI ai;
 	public float errorDistance = 0.2f;
 
 	void Start () {
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody> ();
-		ai = GetComponent<IAstarAI>();
 	}
 
 	void OnPathComplete (Path p) {
@@ -69,10 +67,5 @@ public class EnemyPathfinding : MonoBehaviour {
 				break;
 			}
 		}
-
-		var speedFactor = reachedEndOfPath ? Mathf.Sqrt(distanceToWaypoint/nextWaypointDistance) : 1f;
-		Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-		Vector3 velocity = dir * speed * speedFactor;
-		rb.AddForce (velocity);
 	}
 }

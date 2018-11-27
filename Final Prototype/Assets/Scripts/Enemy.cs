@@ -15,7 +15,7 @@ public class Enemy : IDamageable
         currentHealth = maxHealth;
 	}
 
-    public void TakeDamage(int damage, Colors hitColor)
+    public new void TakeDamage(int damage, Colors hitColor)
     {
         if (color.Equals(hitColor))
         {

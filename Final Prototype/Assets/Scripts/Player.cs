@@ -10,7 +10,7 @@ public class Player : IDamageable
         currentHealth = maxHealth;
 	}
 
-    public void TakeDamage(int damage, Colors lol)
+    public new void TakeDamage(int damage, Colors lol)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)

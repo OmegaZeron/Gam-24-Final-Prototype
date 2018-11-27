@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 1319661022835062}
-  laserDistance: 25
-  fadeSpeed: 0.5
-  damage: 0
+  laserDistance: 2000
+  fadeSpeed: 0.01
+  damage: 1
 --- !u!120 &120631757679696350
 LineRenderer:
   m_ObjectHideFlags: 1

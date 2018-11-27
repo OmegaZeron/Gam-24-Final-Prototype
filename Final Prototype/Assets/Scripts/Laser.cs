@@ -36,15 +36,21 @@ public class Laser : MonoBehaviour
 					newLaser.transform.forward = bounceAngle;
 					newLaser.laserDistance = distance;
 
-					if (hit.collider.GetComponent<IColorable>() != null)
-					{
-						newLaser.color = color + hit.collider.GetComponent<IColorable>().GetColor();
+					if (hit.collider.GetComponent<IColorable> () != null) {
+						newLaser.color = color + hit.collider.GetComponent<IColorable> ().GetColor ();
+					} else {
+						newLaser.color = color;
 					}
 				}
 				//check for switch/enemy
-				if (hit.collider.GetComponent<IDamageable>() != null)
-				{
-					hit.collider.GetComponent<IDamageable>().TakeDamage(damage, color);
+				Switch switchh = hit.collider.GetComponent <Switch> ();
+				if (switchh != null) {
+					switchh.TakeDamage (damage, color);
+				} else {
+					Enemy enemy = hit.collider.GetComponent <Enemy> ();
+					if (enemy != null) {
+						enemy.TakeDamage (damage, color);
+					}
 				}
 			}
 		}
