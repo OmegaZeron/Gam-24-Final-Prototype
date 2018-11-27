@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour, IDamageable
+public class Player : IDamageable
 {
-    private int currentHealth;
-    [SerializeField] private int maxHealth;
-
 	void Start()
     {
         currentHealth = maxHealth;

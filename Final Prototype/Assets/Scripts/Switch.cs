@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : MonoBehaviour, IDamageable
+public class Switch : IDamageable
 {
-    private int currentHealth;
-    [SerializeField] private int maxHealth;
     private Colors color;
     [SerializeField] private Colors.ColorChoice colorChoice;
 
@@ -15,7 +13,6 @@ public class Switch : MonoBehaviour, IDamageable
     {
         color = new Colors(colorChoice);
         currentHealth = maxHealth;
-        Debug.Log(color.color);
 	}
 
     public void TakeDamage(int damage, Colors hitColor)

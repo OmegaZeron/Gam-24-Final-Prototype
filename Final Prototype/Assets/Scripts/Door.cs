@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : IDamageable
 {
     private int locks;
     [SerializeField] private List<IDamageable> keys = new List<IDamageable>();

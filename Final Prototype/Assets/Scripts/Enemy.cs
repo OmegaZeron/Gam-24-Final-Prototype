@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IDamageable
+public class Enemy : IDamageable
 {
-    private int currentHealth;
-    [SerializeField] private int maxHealth;
-
     [SerializeField] private Door door;
 
-    [SerializeField] private Colors color;
+    private Colors color;
+    [SerializeField] private Colors.ColorChoice colorChoice;
 
 	void Start()
     {
+        color = new Colors(colorChoice);
         currentHealth = maxHealth;
 	}
 
