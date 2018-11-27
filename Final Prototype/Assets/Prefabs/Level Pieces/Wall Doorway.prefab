@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23253520135554128}
   - component: {fileID: 64074598928774748}
   m_Layer: 0
-  m_Name: Wall_2_Doorway
+  m_Name: Wall Doorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
