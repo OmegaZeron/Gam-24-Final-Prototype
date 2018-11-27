@@ -1,7 +1,21 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
 public class Colors
 {
+    public enum ColorChoice
+    {
+        White,
+        Red,
+        Green,
+        Blue,
+        Cyan,
+        Magenta,
+        Yellow,
+        Brown
+    }
+    private ColorChoice colorChoice;
+
 	public Color color { get; private set; }
 	private static readonly Color brown = new Color(150/255f, 75/255f, 0/255f);
 
@@ -9,6 +23,41 @@ public class Colors
 	{
 		this.color = color ?? Color.white;
 	}
+    public Colors(ColorChoice color)
+    {
+        if (color == ColorChoice.White)
+        {
+            this.color = Color.white;
+        }
+        else if (color == ColorChoice.Red)
+        {
+            this.color = Color.red;
+        }
+        else if (color == ColorChoice.Green)
+        {
+            this.color = Color.green;
+        }
+        else if (color == ColorChoice.Blue)
+        {
+            this.color = Color.blue;
+        }
+        else if (color == ColorChoice.Cyan)
+        {
+            this.color = Color.cyan;
+        }
+        else if (color == ColorChoice.Magenta)
+        {
+            this.color = Color.magenta;
+        }
+        else if (color == ColorChoice.Yellow)
+        {
+            this.color = Color.yellow;
+        }
+        else if (color == ColorChoice.Brown)
+        {
+            this.color = brown;
+        }
+    }
 
     public bool Equals(Colors other)
     {

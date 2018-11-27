@@ -6,13 +6,16 @@ public class Switch : MonoBehaviour, IDamageable
 {
     private int currentHealth;
     [SerializeField] private int maxHealth;
-    [SerializeField] private Colors color;
+    private Colors color;
+    [SerializeField] private Colors.ColorChoice colorChoice;
 
     [SerializeField] private Door door;
 
     void Start()
     {
+        color = new Colors(colorChoice);
         currentHealth = maxHealth;
+        Debug.Log(color.color);
 	}
 
     public void TakeDamage(int damage, Colors hitColor)
