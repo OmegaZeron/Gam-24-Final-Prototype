@@ -16,7 +16,6 @@ public class VisionCone : MonoBehaviour
     {
         if (other.tag == "Player" && currentDetection == 0)
         {
-            Debug.Log("Player entered the vision cone");
             RaycastHit hit;
             if (Physics.Linecast(transform.position, other.transform.position, out hit))
             {
