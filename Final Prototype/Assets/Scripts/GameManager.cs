@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	#region Singleton stuff
-	public static GameManager Instance { get; private set; }
-	#endregion
+    #region Singleton stuff
+    public static GameManager Instance { get; private set; }
+    #endregion
+
+    [SerializeField] private Player player;
+    public Player PlayerInstance { get { return player; } }
+
 
 	private void Awake()
 	{
