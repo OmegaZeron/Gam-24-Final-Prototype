@@ -1,15 +1,27 @@
 fileFormatVersion: 2
-guid: b6e05e75059ad61429b1d939c02c57fa
+guid: 20e566cf5b667104bb315d33ebf9b50f
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: pCylinder1
+    100004: pCylinder2
+    100006: pSphere1
     400000: //RootNode
-    2100000: No Name
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cone
-    6400000: //RootNode
+    400002: pCylinder1
+    400004: pCylinder2
+    400006: pSphere1
+    2100000: lambert1
+    2300000: pCylinder1
+    2300002: pCylinder2
+    2300004: pSphere1
+    3300000: pCylinder1
+    3300002: pCylinder2
+    3300004: pSphere1
+    4300000: pSphere1
+    4300002: pCylinder1
+    4300004: pCylinder2
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -43,7 +55,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
