@@ -1167,6 +1167,12 @@ MonoBehaviour:
   introMusicLength: 19.382
   loopMusic: {fileID: 8300000, guid: 352f693a55e4740439d6a9d4e91669ea, type: 3}
   loopMusicLength: 133.851
+  lowRumbling: {fileID: 8300000, guid: 17cbaee554ba14144a9eeae6a108eb19, type: 3}
+  asteroidShower: {fileID: 8300000, guid: 27ce981198184024a8d0524c060967dd, type: 3}
+  clank1: {fileID: 8300000, guid: fe9ebce7eaf5bbc49a0824a68289f087, type: 3}
+  clank2: {fileID: 8300000, guid: 2ab758b742c465a48bc076ae77fd0b86, type: 3}
+  clank3: {fileID: 8300000, guid: dffdfc36741088c41bc494b6c6c4772e, type: 3}
+  clank4: {fileID: 8300000, guid: 65cc640602ec6734e8e352fc35d177d2, type: 3}
   musicObject: {fileID: 789462598}
 --- !u!4 &962016515 stripped
 Transform:
