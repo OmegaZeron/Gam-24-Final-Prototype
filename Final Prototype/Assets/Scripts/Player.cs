@@ -12,11 +12,14 @@ public class Player : IDamageable
 
     public new void TakeDamage(int damage, Colors lol)
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
-        {
-            Debug.Log("Player died, resetting scene");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
+		if (lol.color != Colors.brown)
+		{
+			currentHealth -= damage;
+			if (currentHealth <= 0)
+			{
+				Debug.Log("Player died, resetting scene");
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+			}
+		}
+	}
 }

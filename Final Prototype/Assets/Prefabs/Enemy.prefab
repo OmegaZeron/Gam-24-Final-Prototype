@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 54762363613085532}
   - component: {fileID: 136388723765623756}
   - component: {fileID: 114226635687352826}
+  - component: {fileID: 114719365476724372}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -162,6 +163,21 @@ GameObject:
   - component: {fileID: 4477594568087562}
   m_Layer: 0
   m_Name: genSWAT_LeftLeg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1292538838937272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4106405656289080}
+  m_Layer: 0
+  m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -767,6 +783,19 @@ Transform:
   m_Father: {fileID: 4417551519882648}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4106405656289080
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1292538838937272}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.441, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4522336041405996}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4108768443882552
 Transform:
   m_ObjectHideFlags: 1
@@ -1120,6 +1149,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4806154274479436}
+  - {fileID: 4106405656289080}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1439,7 +1469,7 @@ MonoBehaviour:
   version: 2
   radius: 0.5
   height: 0.01
-  repathRate: 0.5
+  repathRate: 2
   canSearch: 1
   canMove: 1
   maxSpeed: 5
@@ -1452,14 +1482,38 @@ MonoBehaviour:
   enableRotation: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
-  rotationSpeed: 360
+  rotationSpeed: 100000
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
   endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
+  alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
+--- !u!114 &114719365476724372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1226025889931050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f504947b129574aaba63add6c8f1f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  door: {fileID: 0}
+  colorChoice: 0
+  player: {fileID: 0}
+  sightRange: 15
+  sightAngle: 50
+  isSeeingPlayer: 0
+  detectionTime: 1
+  laserPrefab: {fileID: 1319661022835062, guid: 30768dde8f0ff364899900f5ed16cf80,
+    type: 2}
+  firePoint: {fileID: 4106405656289080}
+  fireCooldown: 2
+  searchCountdown: 5
 --- !u!114 &114923895571942058
 MonoBehaviour:
   m_ObjectHideFlags: 1

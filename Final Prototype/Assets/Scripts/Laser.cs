@@ -51,6 +51,14 @@ public class Laser : MonoBehaviour
 					if (enemy != null) {
 						enemy.TakeDamage (damage, color);
 					}
+					else
+					{
+						Player player = hit.collider.GetComponentInParent<Player>();
+						if (player != null)
+						{
+							player.TakeDamage(damage, color);
+						}
+					}
 				}
 			}
 		}

@@ -17,30 +17,61 @@ public class EnemyPathfinding : MonoBehaviour {
 	private float lastRepath = float.NegativeInfinity;
 	public bool reachedEndOfPath;
 	public float errorDistance = 0.2f;
+	private Enemy enemy;
+	private AIPath aiPath;
+
+	private Quaternion playerRotTo;
 
 	void Start () {
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody> ();
+		enemy = GetComponent<Enemy>();
+		aiPath = GetComponent<AIPath>();
 	}
 
 	void OnPathComplete (Path p) {
 		//Do nothing
 	}
 
+	public void GetRotInfo(Quaternion rotTo)
+	{
+		playerRotTo = rotTo;
+	}
+
 	void OnReachedDest () {
-		if (i + 1 == waypoints.Length) {
+		if (i + 1 == waypoints.Length)
+		{
 			i = 0;
-		} else {
-			if (i < waypoints.Length) {
+		}
+		else
+		{
+			if (i < waypoints.Length)
+			{
 				i++;
 			}
 		}
 	}
 
 	void Update () {
+
 		if (Time.time > lastRepath + repathRate && seeker.IsDone()) {
 			lastRepath = Time.time;
-			seeker.StartPath(transform.position, waypoints[i].position);
+			if (enemy.Mode == Enemy.AIMODE.Patrolling)
+			{
+				aiPath.endReachedDistance = .2f;
+				seeker.StartPath(transform.position, waypoints[i].position);
+			}
+			else if (enemy.Mode == Enemy.AIMODE.Searching)
+			{
+				Debug.Log("Should be searching for the player's last position here");
+			}
+			else if (enemy.Mode == Enemy.AIMODE.Engaged)
+			{
+				seeker.CancelCurrentPathRequest();
+				seeker.StartPath(transform.position, enemy.player.transform.position);
+				aiPath.endReachedDistance = 7;
+				
+			}
 		}
 
 		if (Vector3.Distance (transform.position, new Vector3 (waypoints[i].position.x, waypoints[i].position.y, waypoints[i].position.z)) <= errorDistance) {

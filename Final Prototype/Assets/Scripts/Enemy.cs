@@ -8,57 +8,164 @@ public class Enemy : IDamageable
 
     private Colors color;
     [SerializeField] private Colors.ColorChoice colorChoice;
-    private Player player;
+    public Player player;
     [SerializeField] private float sightRange = 2.5f;
     [SerializeField] private float sightAngle = 30;
-    private bool isSeeingPlayer = false;
+    [SerializeField] private bool isSeeingPlayer = false;
     [SerializeField] private float detectionTime = 3;
     private float sightTime;
+	private EnemyPathfinding pathFinding;
+	private bool engaged = false;
+	[SerializeField] private GameObject laserPrefab;
+	[SerializeField] private Transform firePoint;
+	private float fireCooldownTimer = 0;
+	[SerializeField] private float fireCooldown;
+	private float searchCountdownTime;
+	[SerializeField] private float searchCountdown;
+	private bool startSearching = false;
+
+	public enum AIMODE
+	{
+		None,
+		Patrolling,
+		Engaged,
+		Searching
+	}
+	private AIMODE mode = AIMODE.Patrolling;
+	public AIMODE Mode { get { return mode; } }
 
 	void Start()
     {
         color = new Colors(colorChoice);
         currentHealth = maxHealth;
         player = GameManager.Instance.PlayerInstance;
+		pathFinding = GetComponent<EnemyPathfinding>();
 	}
 
-    private void Update()
-    {
-        Vector3 playerPos = player.transform.position;
-        Vector3 heading = playerPos - transform.position;
-        float dot = Vector3.Dot(transform.forward, heading);
-        if (dot > 0 && heading.magnitude < sightRange)
-        {
-            float angle = Vector3.Angle(transform.forward, heading);
-            if (angle < sightAngle)
-            {
-                Debug.Log("Enemy detected the player");
-                if (!isSeeingPlayer)
-                {
-                    sightTime = Time.time;
-                }
-                isSeeingPlayer = true;
-            }
-            else
-            {
-                isSeeingPlayer = false;
-                sightTime = 0;
-            }
-        }
-        else
-        {
-            isSeeingPlayer = false;
-            sightTime = 0;
-        }
+	private void Update()
+	{
+		Vector3 playerPos = player.transform.position;
+		Vector3 heading = playerPos - transform.position;
+		float dot = Vector3.Dot(transform.forward, heading);
+		float angle = Vector3.Angle(transform.forward, heading);
 
-        if (isSeeingPlayer)
-        {
-            if (Time.time - sightTime >= detectionTime)
-            {
-                Debug.Log("Enemy is aggroing the player");
-            }
-        }
-    }
+
+		if (mode == AIMODE.Patrolling)
+		{
+
+			if (dot > 0 && heading.magnitude < sightRange)
+			{
+				RaycastHit hit;
+				if (angle < sightAngle && Physics.Raycast(transform.position, playerPos, out hit))
+				{
+					if (hit.collider.tag == "Player")
+					{
+						Debug.Log("Enemy detected the player");
+						if (!isSeeingPlayer)
+						{
+							sightTime = Time.time;
+						}
+						isSeeingPlayer = true;
+					}
+				}
+				else
+				{
+					isSeeingPlayer = false;
+					engaged = false;
+					sightTime = 0;
+				}
+			}
+			else
+			{
+				isSeeingPlayer = false;
+				engaged = false;
+				sightTime = 0;
+			}
+
+			if (isSeeingPlayer)
+			{
+				if (Time.time - sightTime >= detectionTime)
+				{
+					mode = AIMODE.Engaged;
+				}
+			}
+		}
+
+		else if (mode == AIMODE.Engaged)
+		{
+			RaycastHit hit;
+			if (!engaged)
+			{
+				engaged = true;
+				StartCoroutine(FireAtPlayer());
+			}
+			else if (heading.magnitude > sightRange || angle > sightAngle || (!Physics.Raycast(transform.position, playerPos, out hit) || hit.collider.tag != "Player"))
+			{
+				mode = AIMODE.Searching;
+				isSeeingPlayer = false;
+				sightTime = 0;
+				engaged = false;
+			}
+		}
+		
+		else if (mode == AIMODE.Searching)
+		{
+			if (!startSearching)
+			{
+				startSearching = true;
+				searchCountdownTime = Time.time;
+			}
+			else if (dot > 0 && heading.magnitude < sightRange)
+			{
+				RaycastHit hit;
+				if (angle < sightAngle && Physics.Raycast(transform.position, playerPos, out hit))
+				{
+					if (hit.collider.tag == "Player")
+					{
+						startSearching = false;
+						searchCountdownTime = 0;
+						mode = AIMODE.Engaged;
+						isSeeingPlayer = true;
+					}
+				}
+				else if (Time.time - searchCountdownTime > searchCountdown)
+				{
+					mode = AIMODE.Patrolling;
+					startSearching = false;
+					searchCountdownTime = 0;
+
+				}
+			}
+		}
+	}
+
+	private IEnumerator FireAtPlayer()
+	{
+		while (mode == AIMODE.Engaged)
+		{
+			Vector3 temp = player.transform.position;
+			temp.y = 0;
+			transform.LookAt(temp);
+			Vector3 heading = player.transform.position - transform.position;
+			heading.y = 0;
+			Quaternion rotateTo = Quaternion.LookRotation(heading);
+			pathFinding.GetRotInfo(rotateTo);
+
+			if (Vector3.Angle(transform.forward, heading) < sightAngle)
+			{
+				if (Time.time - fireCooldownTimer >= fireCooldown)
+				{
+					Fire();
+				}
+			}
+			yield return null;
+		}
+	}
+	private void Fire()
+	{
+		Instantiate(laserPrefab, firePoint.position, firePoint.rotation);
+		fireCooldownTimer = Time.time;
+	}
 
     public new void TakeDamage(int damage, Colors hitColor)
     {

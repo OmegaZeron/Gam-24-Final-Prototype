@@ -17,7 +17,7 @@ public class Colors
     private ColorChoice colorChoice;
 
 	public Color color { get; private set; }
-	private static readonly Color brown = new Color(150/255f, 75/255f, 0/255f);
+	public static readonly Color brown = new Color(150/255f, 75/255f, 0/255f);
 
 	public Colors(Color? color = null)
 	{
