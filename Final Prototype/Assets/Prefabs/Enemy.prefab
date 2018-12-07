@@ -1473,7 +1473,7 @@ MonoBehaviour:
   canSearch: 1
   canMove: 1
   maxSpeed: 5
-  gravity: {x: 0, y: -9.81, z: 0}
+  gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1557,12 +1557,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  testPoint: {fileID: 0}
   rb: {fileID: 0}
   speed: 30
   nextWaypointDistance: 1
   repathRate: 0.5
   reachedEndOfPath: 0
-  errorDistance: 0.2
 --- !u!136 &136388723765623756
 CapsuleCollider:
   m_ObjectHideFlags: 1
