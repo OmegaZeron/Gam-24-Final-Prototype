@@ -4923,6 +4923,26 @@ Prefab:
       propertyPath: loopMusicLength
       value: 210.207
       objectReference: {fileID: 0}
+    - target: {fileID: 114527524618116198, guid: 61eff6bd7db78aa4bb0cec476d0cafbc,
+        type: 2}
+      propertyPath: laser1
+      value: 
+      objectReference: {fileID: 8300000, guid: ae5082c8d29727f4bbe0033e2ae78b41, type: 3}
+    - target: {fileID: 114527524618116198, guid: 61eff6bd7db78aa4bb0cec476d0cafbc,
+        type: 2}
+      propertyPath: laser2
+      value: 
+      objectReference: {fileID: 8300000, guid: d3d1d0b8f4fad3e45b8dedab08185001, type: 3}
+    - target: {fileID: 114527524618116198, guid: 61eff6bd7db78aa4bb0cec476d0cafbc,
+        type: 2}
+      propertyPath: laser3
+      value: 
+      objectReference: {fileID: 8300000, guid: d86ee22e46a148d479660d22039d859f, type: 3}
+    - target: {fileID: 114527524618116198, guid: 61eff6bd7db78aa4bb0cec476d0cafbc,
+        type: 2}
+      propertyPath: laser4
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a793f9fe967bc6438d239a7d3eead6d, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61eff6bd7db78aa4bb0cec476d0cafbc, type: 2}
   m_IsPrefabParent: 0

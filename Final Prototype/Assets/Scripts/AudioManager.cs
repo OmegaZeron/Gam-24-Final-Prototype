@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundAudioManager : MonoBehaviour {
+public class AudioManager : MonoBehaviour {
 
 	public AudioClip introMusic;
 	public float introMusicLength;
@@ -13,8 +13,10 @@ public class BackgroundAudioManager : MonoBehaviour {
 	public AudioClip clank1;
 	public AudioClip clank2;
 	public AudioClip clank3;
+	public AudioClip laser1;
 	public GameObject musicObject;
 	private AudioSource audio;
+	private bool canPlay = true;
 
 	void Start () {
 		audio = musicObject.GetComponent<AudioSource> ();
@@ -24,6 +26,19 @@ public class BackgroundAudioManager : MonoBehaviour {
 		StartCoroutine (waitAsteroidShower());
 		StartCoroutine (waitClank());
 		StartCoroutine (waitRumble());
+	}
+
+	void Update () {
+		if (Input.GetMouseButtonDown (0) && canPlay == true) {
+			audio.PlayOneShot (laser1, 1f);
+			canPlay = false;
+			StartCoroutine (waitPlay ());
+		}
+	}
+
+	IEnumerator waitPlay () {
+		yield return new WaitForSeconds (0.5f);
+		canPlay = true;
 	}
 
 	IEnumerator waitOnIntro () {
