@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
 
-	public AudioClip introMusic;
-	public float introMusicLength;
-	public AudioClip loopMusic;
-	public float loopMusicLength;
+	public AudioStuff music;
 	public AudioClip lowRumbling;
 	public AudioClip asteroidShower;
 	public AudioClip clank1;
@@ -18,9 +15,9 @@ public class AudioManager : MonoBehaviour {
 	private AudioSource audio;
 	private bool canPlay = true;
 
-	void Start () {
+	public void StartPlaying () {
 		audio = musicObject.GetComponent<AudioSource> ();
-		audio.PlayOneShot (introMusic, 0.4f);
+		audio.PlayOneShot (music.introMusic, 0.4f);
 		audio.PlayOneShot (lowRumbling, 2f);
 		StartCoroutine (waitOnIntro());
 		StartCoroutine (waitAsteroidShower());
@@ -42,14 +39,14 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	IEnumerator waitOnIntro () {
-		yield return new WaitForSeconds (introMusicLength);
-		audio.PlayOneShot (loopMusic, 0.1f);
+		yield return new WaitForSeconds (music.introMusicLength);
+		audio.PlayOneShot (music.loopMusic, 0.1f);
 		StartCoroutine (waitOnLoop());
 	}
 
 	IEnumerator waitOnLoop () {
-		yield return new WaitForSeconds (loopMusicLength);
-		audio.PlayOneShot (loopMusic, 0.1f);
+		yield return new WaitForSeconds (music.loopMusicLength);
+		audio.PlayOneShot (music.loopMusic, 0.1f);
 		StartCoroutine (waitOnLoop());
 	}
 
@@ -80,5 +77,11 @@ public class AudioManager : MonoBehaviour {
 			break;
 		}
 		StartCoroutine (waitClank());
+	}
+
+	public void StopAllCoroutinesMe()
+	{
+		StopAllCoroutines();
+		audio.Stop();
 	}
 }

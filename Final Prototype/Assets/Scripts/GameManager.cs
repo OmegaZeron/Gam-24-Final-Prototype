@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Player player;
     public Player PlayerInstance { get { return player; } }
+	public AudioManager playerAudio;
 
-	private int buildNum = 0;
+	private int buildNum = 1;
 
 
 	private void Awake()
@@ -30,9 +31,27 @@ public class GameManager : MonoBehaviour
 		#endregion
 	}
 
+	private void Start()
+	{
+		playerAudio = player.GetComponent<AudioManager>();
+		playerAudio.music = Resources.Load<AudioStuff>("Level1");
+		playerAudio.StartPlaying();
+	}
+
 	public void LoadNextScene()
 	{
 		buildNum++;
-		SceneManager.LoadScene(buildNum, LoadSceneMode.Additive);
+		if (buildNum == 5)
+		{
+			transform.SetParent(player.transform);
+			SceneManager.LoadScene(5);
+		}
+		else
+		{
+			SceneManager.LoadSceneAsync(buildNum, LoadSceneMode.Additive);
+			playerAudio.StopAllCoroutinesMe();
+			playerAudio.music = Resources.Load<AudioStuff>("Level" + buildNum);
+			playerAudio.StartPlaying();
+		}
 	}
 }

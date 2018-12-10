@@ -1554,6 +1554,12 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 114099025687336460, guid: 61eff6bd7db78aa4bb0cec476d0cafbc,
+        type: 2}
+      propertyPath: laserPrefab
+      value: 
+      objectReference: {fileID: 1319661022835062, guid: a11adb8ac2fb85f4eb5d83930a27a126,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61eff6bd7db78aa4bb0cec476d0cafbc, type: 2}
   m_IsPrefabParent: 0
@@ -2445,7 +2451,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1686414310
 Prefab:
