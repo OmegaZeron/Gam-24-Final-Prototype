@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour {
 
 	void Start () {
 		audio = musicObject.GetComponent<AudioSource> ();
-		audio.PlayOneShot (introMusic, 0.1f);
+		audio.PlayOneShot (introMusic, 0.4f);
 		audio.PlayOneShot (lowRumbling, 2f);
 		StartCoroutine (waitOnIntro());
 		StartCoroutine (waitAsteroidShower());
