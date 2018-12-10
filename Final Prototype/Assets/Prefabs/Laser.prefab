@@ -55,7 +55,7 @@ MonoBehaviour:
   laserPrefab: {fileID: 1319661022835062}
   laserDistance: 12
   fadeSpeed: 0.5
-  damage: 0
+  damage: 1
 --- !u!120 &120631757679696350
 LineRenderer:
   m_ObjectHideFlags: 1

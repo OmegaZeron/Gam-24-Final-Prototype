@@ -25,7 +25,8 @@ public class Door : MonoBehaviour
 			if (locks == 0) {
 				doorLeft.GetComponent<DoorOpen> ().OpenDoor ();
 				doorRight.GetComponent<DoorOpen> ().OpenDoor ();
+				GameManager.Instance.LoadNextScene();
 			}
-        }
+		}
     }
 }

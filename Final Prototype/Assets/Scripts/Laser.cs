@@ -47,7 +47,7 @@ public class Laser : MonoBehaviour
 				if (switchh != null) {
 					switchh.TakeDamage (damage, color);
 				} else {
-					Enemy enemy = hit.collider.GetComponent <Enemy> ();
+					Enemy enemy = hit.collider.GetComponentInParent <Enemy> ();
 					if (enemy != null) {
 						enemy.TakeDamage (damage, color);
 					}

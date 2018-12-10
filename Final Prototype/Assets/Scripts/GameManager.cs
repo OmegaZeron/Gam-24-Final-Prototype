@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Player player;
     public Player PlayerInstance { get { return player; } }
+
+	private int buildNum = 0;
 
 
 	private void Awake()
@@ -27,13 +30,9 @@ public class GameManager : MonoBehaviour
 		#endregion
 	}
 
-	private void Start()
+	public void LoadNextScene()
 	{
-
-	}
-
-	private void Update()
-	{
-
+		buildNum++;
+		SceneManager.LoadScene(buildNum, LoadSceneMode.Additive);
 	}
 }
